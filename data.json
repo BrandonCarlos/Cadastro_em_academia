@@ -1,0 +1,77 @@
+{
+  "members": [
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1583454122781-8cf8f5af9d2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "name": "Brandon Carlos50",
+      "email": "brandondzn15@gmail.com",
+      "birth": -23890291200000,
+      "gender": "M",
+      "blood": "B-",
+      "weight": "150",
+      "height": "180",
+      "id": 1
+    },
+    {
+      "avatar_url": "https://google.com",
+      "name": "Brandon Carlos50",
+      "email": "brandondzn15@gmail.com",
+      "birth": -23890291200000,
+      "gender": "M",
+      "blood": "AB1",
+      "weight": "180",
+      "height": "180",
+      "id": 2
+    },
+    {
+      "avatar_url": "https://google.com",
+      "name": "Brandon Carlos50",
+      "email": "brandondzn15@gmail.com",
+      "birth": 4458240000000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "80",
+      "height": "180",
+      "id": 3
+    },
+    {
+      "avatar_url": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "name": "Brandon Carlos",
+      "email": "brandondzn15@gmail.com",
+      "birth": 14029977600000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "80",
+      "height": "170",
+      "id": 4
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1583454122781-8cf8f5af9d2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "name": "Brandon Carlos",
+      "birth": 213083222400000,
+      "gender": "M",
+      "services": "gdfgdfg, gdfgdf",
+      "created_at": 1596241438455
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "name": "Brandon Carlos",
+      "birth": -12738297600000,
+      "gender": "M",
+      "services": "gdfgdfg, gdfgdf, natação",
+      "created_at": 1596241591280
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://images.unsplash.com/photo-1583454122781-8cf8f5af9d2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "name": "Brandon",
+      "birth": 102011356800000,
+      "gender": "M",
+      "services": "Musculação",
+      "created_at": 1597854968677
+    }
+  ]
+}

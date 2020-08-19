@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+
+      <!--Acima estou passando uma QUERY STRING = "/instructors?_method_PUT" -->
+    <!--Abaixo é a imagem que está do lado ESQUERDO-->
+    <!-- Na linha ACIMA o METHOD="POST" irá ser SOBREESCRITO PARA method="PUT" -->
+    <section class="avatar" style="background: url({{instructor.avatar_url}}) no-repeat center center / cover"></section>
+    <section class="details">
+
+    <!--action="" é para onde ele vai enviar-->
+  <form method="POST" action="/instructors?_method=PUT">
+      <!-- Aki irá ficar os dados do instrutor e dos membros tipo NOME, IDADE, SEXO, MUSCULAÇÃO, GINASTICA -->
+      <h3>Editar instrutor</h3>
+
+      <!--Iremos INCLUIR UM PEDAÇO DE CÓDIGO-->
+      <!--Este PEDAÇO DE CÓDIGO É OS CAMPOS DO INSTRUTOR-->
+      {% include 'instructors/fields.njk' %}
+
+      <input type="hidden" name="id" value={{instructor.id}}>
+  </form>
+
+      <!-- A AÇÃO do formulário abaixo será de DELETAR UM INSTRUCTOR OU ALUNO -->
+  <form id="form-delete" action="/instructors?_method=DELETE" method="post">
+    <input type="hidden" name="id" value={{instructor.id}}>
+    <button type="submit">Deletar</button>
+  </form>
+
+    </section>
+
+</div>
+
+<!-- Abaixo é um SCRIPT "SE QUER REALMENTE DELETAR UM USUÁRIO OU INSTRUTOR" -->
+    <script>
+      const formDelete = document.querySelector('#form-delete')
+      formDelete.addEventListener("submit", function(event) {
+        const confirmation = confirm("Deseja Deletar?")
+        if(!confirmation) {
+          event.preventDefault()
+        }
+      
+      })
+    </script>
+
+{% endblock content %}

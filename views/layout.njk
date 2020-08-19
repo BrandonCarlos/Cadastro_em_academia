@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    {% block head %}
+      <title>Gym Manager</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="/styles.css">
+
+  </head>
+
+  <body>
+    <!--Precisamos por OBRIGATÓRIAMENTE o "HTTPS" para poder direcionar a página do GOOGLE-->
+    <!--OBS: / significa que o servidor irá buscar o INDEX.HTML e a barra / simboliza o INDEX.HTML-->
+    <!--Não esquecer de usar a ORDEM SEMÂNTICA = Header, Section, Main, Footer Etc..-->
+    <header>
+      <nav class="links">
+        <a href="/instructors" >Instructor</a>
+        <a href="/members">Members</a>
+      </nav>
+    </header>
+
+    <!--Excluimos todo o contéudo abaixo-->
+    {% block content %}{% endblock %}
+
+    <script src="/scripts.js"></script>
+
+  </body>
+
+</html>

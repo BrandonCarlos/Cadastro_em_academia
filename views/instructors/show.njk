@@ -1,0 +1,52 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card">
+    <!--Abaixo é a imagem que está do lado ESQUERDO-->
+    <section class="avatar" style="background: url({{ instructor.avatar_url }}) no-repeat center center / cover"></section>
+    <section class="details">
+      <!-- Aki irá ficar os dados do instrutor e dos membros tipo NOME, IDADE, SEXO, MUSCULAÇÃO, GINASTICA -->
+      <h3>Detalhes</h3>
+
+      <div class="item">
+        <div>Instrutor</div>
+        <div>{{ instructor.name }}</div>
+      </div>
+
+      <div class="item">
+        <div>Idade</div>
+        <div>{{ instructor.age }}</div>
+      </div>
+
+      <div class="item">
+        <div>Sexo</div>
+        <!--Vamos fazer um IF, mostra MASCULINO se instructor.gender == "M"-->
+        <div>{{ "Masculino" if instructor.gender == "M" else "Feminino"}}</div>
+      </div>
+
+      <div class="item">
+        <div>Acompanhamento</div>
+        <div>
+          <!--Aki iremos colocar no FORMATO DE "FOR" porque são vários ACOMPANHAMENTOS-->
+          {% for service in instructor.services %}
+            <span>{{ service }}</span>
+            <!--Irá fazer a repetição da linha acima-->
+            <!-- Enquanto tiver SERVIÇOS irá estar IMPRIMINDO o "SERVICE" -->
+            <!--Pois note que temos 2° SERVICES MUSCULAÇÃO E PILATES POR EXEMPLO-->
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <div class="item">
+        <div>Desde</div>
+        <!--A linha abaixo representa o momento em que o INSTRUCTOR SE CADASTROU NO SISTEMA-->
+        <div>{{ instructor.created_at }}</div>
+      </div>
+
+      <a href="/instructors/{{ instructor.id }}/edit" class="button">Editar</a>
+
+    </section>
+  </div>
+
+{% endblock content %}

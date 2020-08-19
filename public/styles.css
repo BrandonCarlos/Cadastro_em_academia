@@ -1,0 +1,338 @@
+/*IMPORTANDO A FONT ROBOTO*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700:wght@300&display=swap');
+:root {
+  --primary-color: #7159c1;
+  /*vamos criar mais uma váriavel para a cor amarela*/
+  --secondary-color: #F7DF1E;
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body{
+  background: var(--primary-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+header{
+  background: white;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
+  /*A linha abaixo resolve o erro de ter PADDING no left e não ter PADDING no right*/
+  /*Faz com que o "PADDING" respeite a largura máxima de 100%*/
+  box-sizing: border-box;
+
+}
+
+.links{
+  font-size: 22px;
+
+}
+
+/*a + a ????  Significa pegue aquele "a" que tem um "a" antes
+Ou seja customize apenas o SEGUNDO "a" segundo link*/
+.links a + a{
+
+  margin-left: 32px;
+  /*A linha abaixo resolve aquele erro de deixar MARGIN na esquerda
+  atrapalhando e não centralizando os menus*/
+
+}
+
+.links a{
+  text-decoration: none;
+  /*A linha abaixo resolve aquele erro de deixar MARGIN na esquerda
+  atrapalhando e não centralizando os menus*/
+  color: #777;  
+  position: relative;
+}
+
+.links a.active{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/*Quando eu passar o MOUSE PRO CIMA DO LINK quero que haja um AÇÃO*/
+.links a:hover{
+  color: var(--primary-color);
+}
+
+.links a::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+
+/*Irei fazer a animação de uma borda esticando por debaixo do texto*/
+/*Usaremos PSEUDO-ELEMENTS */
+  .links a:hover::after {
+    /*No PSEUDO-ELEMENTS sempre precisaremos ter um "CONTENT"*/
+    /*content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -4px;*/
+
+    width: 100%;
+    transition: width 300ms cubic-bezier(1,-0.01, 0.69, 0.95);
+  }
+
+  /*=== CARD ===*/
+
+  .card{
+    background: white;
+    width: 800px;
+    /*o LAYOUT tinha quebrado e então colocamos min-height e resolveu*/
+    min-height: 400px;
+    margin: 45px auto;
+    /*A linha abaixo irá dividir em 2 colunas*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*A linha abaixo é a SOMBRA*/
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.4);
+
+    /* animation*/
+    /*Toda animação precisa ter um nome, esse nome eu que escolho*/
+    /*animation-name: up;*/
+    /*TEMPO DA ANIMAÇÃO*/
+    /*200ms para a animação acontecer*/
+    /*animation-duration: 200ms;/*
+
+    /*A linha abaixo deixa a transição suave*/
+    /*animation-timing-function: ease-out;*/
+
+    animation: up 200ms ease;
+    
+    /*animation-fill-mode: forwards;*/
+
+    /*A linha abaixo faz com que demore 1s para a transição ocorrer*/
+    /*animation-delay: 1s;*/
+
+    /*A linha abaixo é bom usar com JAVASCRIPT
+    porque está pausado no JAVASCRIPT podiamos clicar em um botão e despausar assim iniciando a ANIMAÇÃO*/
+    /*animation-play-state: paused;*/
+    /*animation-play-state: running;*/
+
+    /*Animação para o elemento sumir*/
+    /*animation-direction: reverse;*/
+
+    /*A linha abaixo é o tipo da iteração se eu quero que ocorra 2, 3 vezes a animação...*/
+    /*animation-iteration-count: 2;*/
+ 
+  }
+
+  @keyframes up {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /*Details*/
+
+  .details{
+    padding: 32px;
+    
+  }
+
+  .details .item{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+  }
+  
+  /*No ultimo elemento eu não quero a LINHA(BORDA)*/
+  /*":last-child" ultimo elemento justamente o que vamos retirar*/
+  .details .item:last-child {
+    border: none;
+    /*Pronto tirei a ultima linha(BORDA)*/
+  }
+
+  /*Vamos mecher no h3 = Detalhes*/
+  .details h3,   
+  
+  /*Agora quero pegar apenas a 1° DIV*/
+  /*div:nth-child(1)  então pegamos a 1° DIV*/
+  .details .item div:nth-child(1){
+    font-size: 14px;
+    /*line-height irá dar uma separada entre os textos "instrutor e Guilherme Saraiva"*/
+    line-height: 24px;
+    color: #777;
+    /*letter-spacing  ESPAÇAMENTO ENTRE AS LETRAS*/
+    letter-spacing: 0.7px;
+    font-weight: normal;
+  }
+
+  /*Agora vamos estilizar a 2° DIV*/
+  .details .item div:nth-child(2){
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .details h3{
+    /*text-transform: uppercase para ficar com LETRAS MAIUSCULAS*/
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  .details .item span {
+    padding: 8px 16px;
+    background: var(--secondary-color);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    /*Para aceitar esse margin-top que eu coloquei, eu preciso colocar um 
+    "display:inline-block" que dai ele vai aceitar o meu "margin-top"*/
+    margin-top: 8px;
+    /*Graças a linha de baixo a linha de cima funciona*/
+    display: inline-block;
+    font-weight: bold;
+    /*A linha abaixo faz com que o texto fique com LETRAS MAIUSCULAS*/
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  /*FORM*/
+  input, select{
+    /*A linha abaixo irá DESBUGAR o texto "separe os serviços prestados por virgula" */
+    width: 100%;
+    /*Quando clicamos no INPUT fica uma LINHA AZUL para tirarmos fazemos:*/
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+
+  }
+
+  /*Acabamos quebrando o INPUT RADIO'S vamos arrumar*/
+  /*Selecionando o INPUT do tipo RADIO*/
+  input[type="radio"] {
+    /*E pronto mantendo o RADIO do jeito que estava*/
+    width: initial;
+    margin-right: 4px;
+  }
+
+  /*Vamos ajustar o INPUT PLACEHOLDER*/
+  input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  /*Vamos estilizar somente os BOTÔES do tipo SUBMIT*/
+  button[type="submit"], 
+  a.button {
+    padding: 8px 32px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    margin-top: 32px;
+    /*Agora o botão irá ocupar a linha toda*/
+    width: 100%;
+    font-size: 16px;
+    
+
+  }
+
+  a.button{
+    /*display: block, fará ele ficar na linha TODA só que ele passou da linha BUG, passou do LIMITE DA NOSSA BOX*/
+    display:block;
+    /*Com a linha abaixo irá RESPEITAR O LIMITE DA BOX*/
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  #form-delete button[type="submit"] {
+    margin-top: 8px;
+    background: lightcoral;
+  }
+
+  /*INDEX INSTRUCTORS (TABELA) */
+  .table-container {
+    display: block;/*ESTÁ linha RETIROU O "display: grid", e colocou de volta o "display: block"*/
+    padding: 40px;
+    box-sizing: border-box;/*Estou DIZENDO que vou usar o PADDING mais DEVE-SE RESPEITAR A "TABLE" 
+    RESPEITAR O "PADDING" DENTRO DA "TABLE" */
+  }
+
+  .table-container table {
+    border-spacing: 0;
+  }
+
+  .table-container thead tr th {
+    /*A linha abaixo faz com que os " TH'S " ou seja TITULOS = "instructor e Atendimento"
+    Fiquem ALINHADOS NA ESQUERDA */
+    text-align: left;
+  }
+
+  td, th {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+  }
+
+  /*Na linha abaixo estou tirando a ultima BORDA*/
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+  }
+
+  /*Em todas as linhas pega o 1° elemento filho e pega o SPAN ali dentro */
+  tbody tr td:first-child span {
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;/*Esta linha e para a IMAGEM COBRIR TODO O "width e height" */
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+  }
+
+  tbody tr td:last-child a,
+  .table-container > a {
+    background: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+
+  .table-container > a {
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .table-container thead tr th:last-child,
+  td:last-child {
+    text-align: center;
+  }
+
